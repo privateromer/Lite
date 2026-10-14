@@ -6,7 +6,7 @@ on:
       STOCK_DEVICE:
         description: "Your own device model or None"
         required: true
-        default: "SM-A245F"
+        default: "SM-A155F"
 
       USE_UI_8_TETHERING_APEX:
         description: "Set True if your kernel BPF version is 5.4 (lower than 5.10)."
@@ -16,12 +16,12 @@ on:
       TARGET_DEVICE:
         description: "TARGET_DEVICE_MODEL."
         required: true
-        default: "SM-S711B"
+        default: "SM-A245F"
 
       TARGET_DEVICE_CSC_OR_DOWNLOAD_LINK:
         description: "Input target device CSC code or direct download link."
         required: true
-        default: "EUX"
+        default: "TUN"
 
       TARGET_FW_VERSION:
         description: "Specific Samsung firmware version (PDA/CSC/MODEM) OR (AP/CSC/CP)"
@@ -40,7 +40,7 @@ on:
       DEBLOAT_ROM:
         description: "Debloat downloaded rom (True/False)"
         required: true
-        default: "True"
+        default: "False"
 
       DEBLOAT_SAMSUNG_BIXBY:
         description: "Debloat Samsung Bixby apps (True/False)"
@@ -60,17 +60,17 @@ on:
       ADD_SAMSUNG_FLAGSHIP_APPS:
         description: "Add samsung flagship apps (True/False)"
         required: true
-        default: "True"
+        default: "False"
 
       ADD_CUSTOM_FEATURES:
         description: "Add samsung custom features (True/False)"
         required: true
-        default: "True"
+        default: "False"
 
       PATCH_FLAG_SECURE:
         description: "Bypass screenshot and screen record detection (True/False)"
         required: true
-        default: "True"
+        default: "False"
 
       PATCH_SECURE_FOLDER:
         description: "Patch samsung secure folder (True/False)"
