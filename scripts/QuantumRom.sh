@@ -2030,10 +2030,6 @@ APPLY_STOCK_CONFIG() {
 	fi
 
 	rm -rf "${EXTRACTED_FIRM_DIR}/system/system/etc/init"/rscmgr*.rc
-	find "${EXTRACTED_FIRM_DIR}/system/system/media" -maxdepth 1 -type f \( -iname "*.spi" -o -iname "*.qmg" -o -iname "*.txt" \) -delete
-	rm -rf "$EXTRACTED_FIRM_DIR"/product/overlay/framework-res*auto_generated_rro_product.apk
-	rm -rf ${EXTRACTED_FIRM_DIR}/product/overlay/SystemUI*auto_generated_rro_product.apk
-	rm -rf ${EXTRACTED_FIRM_DIR}/product/overlay/TeleService*auto_generated_rro_product.apk
 
 	cp -a "${DEVICES_DIR}/$STOCK_DEVICE/Stock/." "${EXTRACTED_FIRM_DIR}/"
 
@@ -2134,11 +2130,6 @@ DISABLE_SECURITY() {
 	local EXTRACTED_FIRM_DIR="$1"
 
     echo -e "Disabling security related things."
-
-    if [ -f "${EXTRACTED_FIRM_DIR}/product/etc/build.prop" ]; then
-        echo "- Disabling factory reset protection from product."
-        BUILD_PROP "$EXTRACTED_FIRM_DIR" "product" "ro.frp.pst" ""
-    fi
 
 	if [ -f "${EXTRACTED_FIRM_DIR}/vendor/build.prop" ]; then
         echo "- Disabling factory reset protection from vendor."
@@ -2441,67 +2432,17 @@ APPLY_CUSTOM_FEATURES() {
     fi
 
 	echo -e "- Adding build prop tweak."
-    BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "fw.max_users" "5"
-    BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "fw.show_multiuserui" "1"
-    BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "wifi.interface=" "wlan0"
     BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "wlan.wfd.hdcp" "disable"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "media.extractor.sec.pcm-32bit" --delete
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "Build.BRAND" "MTK"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.base_build" "noah"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system_ext" "ro.audio.ihaladaptervendorextension_enabled" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.audio.ihaladaptervendorextension_enabled" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.audio.usb.period_us" "16000"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.af.threshold.src_and_effect_count" "5"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.af.pausewait.enable" "false"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.af.dynamic.sleeptime.enable" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.audio.flinger_standbytime_ms" "1000"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.audio.deepbuffer_delay" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.camera.sound.forced" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.audio.silent" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "debug.sf.enable_gl_backpressure" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "debug.sf.treat_170m_as_sRGB" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "debug.sf.predict_hwc_composition_strategy" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "debug.sf.enable_transaction_tracing" "false"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.have_aee_feature" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.rild.libpath" "mtk-ril.so"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.rild.libargs" "-d /dev/ttyC0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "wifi.interface" "wlan0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.mediatek.wlan.wsc" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.mediatek.wlan.p2p" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "mediatek.wlan.ctia" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.mtk_telecom_max_ringingcall_number" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.pco5.radio.ctrl" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "wifi.direct.interface" "p2p0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.mtk_telephony_add_on_policy" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.wfc.sys_wfc_support" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.customer_logpath" "/data"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "wifi.tethering.interface" "ap0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.vzw_device_type" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.mtk_omacp_support" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.mtk.vilte.enable" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.vilte_support" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.pms_removable" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "media.stagefright.thumbnail.prefer_hw_codecs" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "vendor.mtk_thumbnail_optimization" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.mtk_flv_playback_support" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "debug.stagefright.c2inputsurface" "-1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.mtk_perf_simple_start_win" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.mtk_perf_fast_start_win" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.mtk_perf_response_time" "1"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.sys.usb.mtp.whql.enable" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.sys.usb.storage.type" "mtp"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.sys.usb.bicr" "no"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.sys.usb.charging.only" "yes"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.sys.fuse.passthrough.enable" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.iorapd.enable" "false"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.property_service.async_persist_writes" "true"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "persist.vendor.mdlog.flush_log_ratio" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.opengles.version" "196610"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.zygote.preload.enable" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "qemu.hw.mainkeys" "0"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.kernel.zio" "38,108,105,16"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "sys.ipo.pwrdncap" "2"
-	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "sys.ipo.disable" "1"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.vendor.model" "SM-A245F"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.vendor_dlkm.model" "SM-A245F"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.vendor.build.version.incremental" "A245FXXS9DYG1"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.system_dlkm.build.version.incremental" "A245FXXS9DYG1"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.odm.build.version.incremental" "A245FXXS9DYG1"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.board" "a24"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.model" "a24"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.odm.device" "a24"
+	BUILD_PROP "$EXTRACTED_FIRM_DIR" "system" "ro.product.vendor_ext.model" "SM-A245F"
+	
 
     # Apply custom floating feature.
 	APPLY_CUSTOM_FLOATING_FEATURE "$EXTRACTED_FIRM_DIR"
