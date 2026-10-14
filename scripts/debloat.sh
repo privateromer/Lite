@@ -3,66 +3,68 @@
 
 # GENERAL / SYSTEM / BLOAT
 DEBLOAT_APPS=(
-"HMT" "PaymentFramework" "FactoryCameraFB" "WlanTest"
+"HMT"
 )
 
 
 # KOREAN / CARRIER APPS
 CARRIER_APPS=(
-"KTAuth" "KTCustomerService" "KTUsimManager"
+"KTAuth"
 )
 
 
 # SAMSUNG FEATURES / APPS
 SAMSUNG_APPS=(
-"OfflineLanguageModel_stub" "IpsGeofence" "DigitalKey"
+"OfflineLanguageModel_stub"
 )
 
 
 # SAMSUNG DEX APPS
-SAMSUNG_DEX_APPS=("DeXonPC" "DesktopModeUiService" "KnoxDesktopLauncher"
-"SystemUIDesktop" "DexCommunity" "KnoxContainerDesktop"
+SAMSUNG_DEX_APPS=(
+"SystemUIDesktop"
 )
 
 
 # SAMSUNG BIXBY APPS
 SAMSUNG_BIXBY_APPS=(
-"BixbyWakeup" "BixbyInterpreter" "Bixby"
+"BixbyWakeup"
 )
 
 
 # SAMSUNG AI / SMART
 SAMSUNG_AI=(
-"SmartEye" "SmartPush" "SmartPush_64"
+"SmartEye"
 )
 
 
 # GOOGLE APPS
 GOOGLE_APPS=(
-"SpeechServicesByGoogle" "Maps" "Duo" "Photos"
+"SpeechServicesByGoogle"
 )
 
 
 # FACEBOOK
 FACEBOOK_APPS=(
-"FBAppManager_NS" "FBInstaller_NS" "FBServices"
+"FBAppManager_NS"
 )
 
 
 # DRIVERS
 HARDWARE_DRIVERS=(
-"DevGPUDriver-EX2200" "GameDriver-EX2100" "GameDriver-EX2200" "GameDriver-SM8150"
+"DevGPUDriver-EX2200"
 )
 
 
 # MISC / SERVICES
 MISC_SERVICES=(
-"AuthFramework" "Discover" "DiscoverSEP"
+"AuthFramework"
 )
 
 
 # Knox
-KNOX_APPS=("Rampart" "KnoxFrameBufferProvider")
+KNOX_APPS=(
+"Rampart"
+)
 
 
 REMOVE_ESIM_FILES() {
