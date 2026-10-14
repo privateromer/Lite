@@ -4,44 +4,18 @@
 # GENERAL / SYSTEM / BLOAT
 DEBLOAT_APPS=(
 "HMT" "PaymentFramework" "FactoryCameraFB" "WlanTest"
-"WlanTest" "AirGlance" "AirReadingGlass" "AndroidGlassesCore"
-"SOAgent77" "ARDrawing" "ARZone" "Messages"
-"BlockchainBasicKit" "SmartReminder"
-"Cameralyzer" "DictDiotekForSec"
-"LinkSharing_v11" "LiveDrawing" "MAPSAgent"
-"MinusOnePage" "Netflix_stub" "Notes40"
-"SmartReminder"
-"VoiceAccess"
-"WebManual" "AutomationTest_FB" "FactoryTestProvider"
 )
 
 
 # KOREAN / CARRIER APPS
 CARRIER_APPS=(
 "KTAuth" "KTCustomerService" "KTUsimManager"
-"LGUMiniCustomerCenter" "LGUplusTsmProxy"
-"SKTMemberShip_new" "SktUsimService" "TWorld"
-"KT114Provider2" "KTHiddenMenu" "KTOneStore"
-"KTServiceAgent" "KTServiceMenu" "LGUIxio_Stub"
-"LGUGPSnWPS" "LGUHiddenMenu" "LGUOZStore"
-"SKTFindLostPhone" "SKTHiddenMenu" "SKTMemberShip"
-"SKTOneStore" "SKTFindLostPhoneApp"
-"TPhoneOnePackage" "TPhoneSetup" "TService"
-"UsimRegistrationKOR" "HpsAgreement_new" "KTAuth_Stub"
 )
 
 
 # SAMSUNG FEATURES / APPS
 SAMSUNG_APPS=(
 "OfflineLanguageModel_stub" "IpsGeofence" "DigitalKey"
-"OneDrive_Samsung_v3" "SamsungCarKeyFw"
-"SamsungPass" "KidsHome_Installer"
-"SamsungPassAutofill_v1"
-"AirCommand"
-"AREmojiEditor" "AvatarEmojiSticker"
-"AvatarEmojiSticker_S" "AvatarPicker"
-"LiveStickers"
-"sticker"
 )
 
 
@@ -60,18 +34,12 @@ SAMSUNG_BIXBY_APPS=(
 # SAMSUNG AI / SMART
 SAMSUNG_AI=(
 "SmartEye" "SmartPush" "SmartPush_64"
-"SmartThingsKit" "SmartTouchCall"
 )
 
 
 # GOOGLE APPS
 GOOGLE_APPS=(
 "SpeechServicesByGoogle" "Maps" "Duo" "Photos"
-"AssistantShell" "BardShell" "DuoStub"
-"GoogleCalendarSyncAdapter"
-"AndroidAutoStub" "FamilyLinkParentalControls"
-"AndroidSystemIntelligence" "GoogleRestore"
-"SamsungMessages" "SearchSelector" "PlayAutoInstallConfig" "FamilyLinkParentalControls" "Messages"
 )
 
 
@@ -90,20 +58,6 @@ HARDWARE_DRIVERS=(
 # MISC / SERVICES
 MISC_SERVICES=(
 "AuthFramework" "Discover" "DiscoverSEP"
-"FotaAgent"
-"LedCoverService"
-"MemorySaver_O_Refresh"
-"MultiControlVP6"
-"OMCAgent5" "OneStoreService" "FactoryAirCommandManager"
-"SOAgent7" "SOAgent75" "SOAgent76"
-"SolarAudio-service"
-"SumeNNService" "SVoiceIME"
-"SwiftkeyIme" "SwiftkeySetting"
-"SystemUpdate" "TADownloader"
-"TaPackAuthFw"
-"UltraDataSaving_O" "Upday"
-"YourPhone_P1_5" "DsmsAPK"
-"MyGalaxyService"
 )
 
 
@@ -272,10 +226,4 @@ DEBLOAT() {
 	rm -rf "$EXTRACTED_FIRM_DIR/system/system/priv-app/SsuService"
 	rm -rf "$EXTRACTED_FIRM_DIR/system/system/etc/permissions/privapp-permissions-com.samsung.android.app.updatecenter.xml"
     rm -rf "$EXTRACTED_FIRM_DIR/system/system/etc/init/boot-image.prof"
-    rm -rf "$EXTRACTED_FIRM_DIR/system/system/hidden/SmartTutor"
-    rm -rf "$EXTRACTED_FIRM_DIR/system/system/preload"
-	rm -rf "$EXTRACTED_FIRM_DIR/system/system/etc/mediasearch"
-	rm -rf "$EXTRACTED_FIRM_DIR/system/system/skt"
-	rm -rf "$EXTRACTED_FIRM_DIR/system/system/tts"
-	rm -rf "$EXTRACTED_FIRM_DIR/product/priv-app"/HotwordEnrollment*
 }
