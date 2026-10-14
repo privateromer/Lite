@@ -45,7 +45,7 @@ on:
       DEBLOAT_SAMSUNG_BIXBY:
         description: "Debloat Samsung Bixby apps (True/False)"
         required: true
-        default: "True"
+        default: "False"
 
       DEBLOAT_SAMSUNG_DEX:
         description: "Debloat Samsung Dex apps (True/False)"
